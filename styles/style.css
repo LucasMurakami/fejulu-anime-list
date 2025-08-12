@@ -7,15 +7,129 @@
   --purple-300: #5A189A;
   --purple-400: #7B2CBF;
   --purple-500: #9D4EDD;
-  
+
   /* Orange shades */
   --orange-100: #FF6D00;
   --orange-200: #FF7900;
   --orange-300: #FF8500;
   --orange-400: #FF9100;
   --orange-500: #FF9E00;
+
+  font-family: 'Roboto', 'Montserrat', 'Poppins', sans-serif;
+
 }
 
 body {
-    font-family: 'Roboto', 'Montserrat', 'Poppins', sans-serif;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--purple-100);
+  width: 100%;
 }
+body:last-child{
+  margin-bottom: 5rem;
+}
+
+.header {
+  display: flex;
+  direction: row;
+  background-color: var(--purple-200);
+  align-items: center;
+}
+
+.header p {
+  margin-left: 1rem;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--orange-400);
+}
+
+.main-banner {
+  position: relative;
+  padding: 0 0 1rem 0;
+  aspect-ratio: 16/9;
+  gap: auto;
+}
+
+.main-banner::after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(90deg, rgba(36, 0, 70, 0.6) 40%, rgba(90, 24, 154, 0) 100%);
+}
+
+.main-banner p {
+  font-size: 16px;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 10;
+  line-break: auto;
+}
+
+.main-banner img {
+  z-index: 8;
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+.anime-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.anime-list li img {
+  border-radius: 8px;
+  width: 175px;
+  height: 100%;
+}
+
+.section-title {
+  padding: 0 1rem;
+  margin: 1rem 0;
+  gap: .5rem;
+}
+
+.section-title p {
+  font-size: 16px;
+}
+
+.spacer {
+  width: 100%;
+  height: 2px;
+  background-color: var(--orange-400);
+}
+
+.anime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+
+.footer {
+  padding: .5rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background: linear-gradient(180deg, var(--purple-100) 0%, var(--purple-300) 100%);
+}
+
+.footer-button {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF95;
+}
+
