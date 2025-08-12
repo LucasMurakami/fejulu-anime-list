@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Poppins&display=swap');
+
+:root {
+  /* Purple shades */
+  --purple-100: #240046;
+  --purple-200: #3C096C;
+  --purple-300: #5A189A;
+  --purple-400: #7B2CBF;
+  --purple-500: #9D4EDD;
+  
+  /* Orange shades */
+  --orange-100: #FF6D00;
+  --orange-200: #FF7900;
+  --orange-300: #FF8500;
+  --orange-400: #FF9100;
+  --orange-500: #FF9E00;
+}
+
+body {
+    font-family: 'Roboto', 'Montserrat', 'Poppins', sans-serif;
+}
