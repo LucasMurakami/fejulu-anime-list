@@ -78,6 +78,26 @@ function normalizeAnime(raw) {
 }
 
 /**
+ * Normalize raw info anime item to a minimal shape used by UI.
+ * @param {*} raw
+ * @returns normalized anime info object
+ */
+function normalizeAnimeInfo(raw) {
+  return {
+    id: raw.mal_id,
+    title: raw.title || raw.title_english || raw.title_japanese,
+    image: raw.images?.webp?.large_image_url || raw.images?.jpg?.image_url,
+    score: raw.score,
+    rank: raw.rank,
+    episodes: raw.episodes,
+    url: raw.url,
+    synopsis: raw.synopsis,
+    genres: raw.genres,
+    title_japanese: raw.title_japanese
+  };
+}
+
+/**
  * Fetch top anime list.
  * @param {object} opts { limit=25, page=1, signal, ttl }
  * @returns {Promise<Array>}
@@ -114,6 +134,26 @@ export async function getNewestAnimes({ limit = 25, page = 1, signal, ttl } = {}
     throw err;
   }
 }
+
+/**
+ * Fetch anime by id.
+ * @param {object} opts { id, signal, ttl }
+ * @returns {Promise<Array>}
+ */
+export async function getAnimeById({ id, signal, ttl } = {}) {
+  try {
+    const json = await request(`/anime/${id}`, {}, { signal, ttl });
+    const item = json?.data ? json.data : [];
+    return [normalizeAnimeInfo(item)]; 
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      return [];
+    }
+    console.error('[getAnimeById] Error:', err);
+    throw err;
+  }
+}
+
 
 export function clearJikanCache() {
   cache.clear();
