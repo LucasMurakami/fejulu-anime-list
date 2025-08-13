@@ -38,6 +38,7 @@ function renderAnimes(animes, containerSelector) {
     img.alt = `Cover of ${anime.title}`;
 
     const title = document.createElement("p");
+    title.className = "anime-name";
     title.textContent = anime.title;
 
     li.appendChild(img);
