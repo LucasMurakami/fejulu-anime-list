@@ -11,12 +11,18 @@
 </head>
 
 <body>
-    <h1>Teste? MuTi-Ga</h1>
-
+    
     <section id="anime-section">
         <h2>Top Anime</h2>
-        <button id="fetch-btn">Fetch Top Anime</button>
-        <ul id="anime-list-items"></ul>
+        <div id="status" aria-live="polite" class="visually-hidden"></div>
+        <ul id="anime-list-items" aria-busy="false"></ul>
+
+        <template id="anime-item-template">
+            <li class="anime-item">
+                <strong class="anime-title"></strong><br>
+                <img class="anime-img" alt="" width="100"><br>
+            </li>
+        </template>
     </section>
 
 </body>
