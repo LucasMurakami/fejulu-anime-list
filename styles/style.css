@@ -154,8 +154,10 @@ body:last-child{
   }
 
   .header {
-    justify-content: space-between;
-    padding: 1rem 3rem;
+  display: flex;
+  direction: row;
+  background-color: var(--purple-200);
+  align-items: center;
   }
 
   .desktop-nav {
