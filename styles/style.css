@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Poppins&display=swap');
 
 :root {
+  /* Default Font - Roboto Weight 400 */
+  font-family: 'Roboto', 'Montserrat', 'Poppins', sans-serif;
+  font-weight: 400;
+
   /* Purple shades */
   --purple-100: #240046;
   --purple-200: #3C096C;
@@ -15,7 +19,10 @@
   --orange-400: #FF9100;
   --orange-500: #FF9E00;
 
-  font-family: 'Roboto', 'Montserrat', 'Poppins', sans-serif;
+  /* Fonts to use in the project */
+  --font-roboto: 'Roboto', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
 
 }
 
@@ -80,7 +87,12 @@ body:last-child{
 
 .anime-list {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
   justify-content: space-evenly;
 }
 
