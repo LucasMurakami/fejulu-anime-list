@@ -20,6 +20,7 @@
 }
 
 body {
+
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -42,6 +43,12 @@ body:last-child{
   font-size: 24px;
   font-weight: bold;
   color: var(--orange-400);
+}
+
+.desktop-nav,
+.banner-info-desktop,
+.footer-desktop {
+  display: none;
 }
 
 .main-banner {
@@ -133,3 +140,132 @@ body:last-child{
   color: #FFFFFF95;
 }
 
+
+@media screen and (min-width: 1024px) {
+  .desktop-nav,
+  .banner-info-desktop,
+  .footer-desktop {
+    display: block;
+  }
+
+  .banner-mobile,
+  .footer {
+    display: none;
+  }
+
+  .header {
+    justify-content: space-between;
+    padding: 1rem 3rem;
+  }
+
+  .desktop-nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .desktop-nav a {
+    color: var(--orange-400);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .main-banner {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem 3rem;
+    gap: 2rem;
+  }
+
+  .main-banner img {
+    width: 50%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .banner-info-desktop {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .banner-info-desktop h2 {
+    font-size: 24px;
+    color: var(--orange-400);
+  }
+
+  .banner-info-desktop h3 {
+    font-size: 18px;
+    color: var(--orange-300);
+  }
+
+  .banner-info-desktop p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .banner-info-desktop button {
+    background-color: var(--orange-400);
+    border: none;
+    padding: .5rem 1rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .anime-list {
+    justify-content: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 0 3rem;
+  }
+
+  .anime {
+    background-color: var(--purple-200);
+    padding: 1rem;
+    border-radius: 8px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .anime p {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--orange-300);
+  }
+
+  .footer-desktop {
+    padding: 2rem 3rem;
+    background-color: var(--purple-300);
+    color: white;
+  }
+
+  .footer-desktop h4 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    color: var(--orange-400);
+  }
+
+  .footer-desktop ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-desktop li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+}
