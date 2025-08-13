@@ -76,14 +76,6 @@ body:last-child{
   background: linear-gradient(90deg, rgba(36, 0, 70, 0.6) 40%, rgba(90, 24, 154, 0) 100%);
 }
 
-.main-banner p {
-  font-size: 16px;
-  position: absolute;
-  top: 32px;
-  left: 32px;
-  z-index: 10;
-  line-break: auto;
-}
 
 .main-banner img {
   z-index: 8;
@@ -153,7 +145,7 @@ body:last-child{
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .desktop-nav,
   .banner-info-desktop,
   .footer-desktop {
@@ -217,9 +209,9 @@ body:last-child{
     color: var(--orange-300);
   }
 
-  .banner-info-desktop p {
+  .main-banner p {
     font-size: 16px;
-    line-height: 1.5;
+    color: var(--orange-300);
   }
 
   .banner-info-desktop button {
@@ -241,7 +233,6 @@ body:last-child{
   }
 
   .anime {
-    background-color: var(--purple-200);
     padding: 1rem;
     border-radius: 8px;
     width: 220px;

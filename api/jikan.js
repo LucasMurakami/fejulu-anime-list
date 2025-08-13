@@ -79,10 +79,10 @@ function normalizeAnime(raw) {
 
 /**
  * Fetch top anime list.
- * @param {object} opts { limit=10, page=1, signal, ttl }
+ * @param {object} opts { limit=25, page=1, signal, ttl }
  * @returns {Promise<Array>}
  */
-export async function getTopAnimes({ limit = 10, page = 1, signal, ttl } = {}) {
+export async function getTopAnimes({ limit = 25, page = 1, signal, ttl } = {}) {
   try {
     const json = await request('/top/anime', { limit, page }, { signal, ttl });
     const items = Array.isArray(json?.data) ? json.data : [];
@@ -98,16 +98,14 @@ export async function getTopAnimes({ limit = 10, page = 1, signal, ttl } = {}) {
 
 /**
  * Fetch newest anime list.
- * @param {object} opts { limit=10, page=1, signal, ttl }
+ * @param {object} opts { limit=25, page=1, signal, ttl }
  * @returns {Promise<Array>}
  */
-export async function getNewestAnimes({ limit = 10, page = 1, signal, ttl } = {}) {
+export async function getNewestAnimes({ limit = 25, page = 1, signal, ttl } = {}) {
   try {
     const json = await request('/seasons/upcoming', { limit, page }, { signal, ttl });
     const items = Array.isArray(json?.data) ? json.data : [];
-
-    const animes = items.map(normalizeAnime);
-    return animes;
+    return items.map(normalizeAnime);
   } catch (err) {
     if (err.name === 'AbortError') {
       return [];
