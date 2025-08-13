@@ -70,6 +70,7 @@ function normalizeAnime(raw) {
     id: raw.mal_id,
     title: raw.title || raw.title_english || raw.title_japanese,
     image: raw.images?.webp?.large_image_url || raw.images?.jpg?.image_url,
+    banner: raw.images?.webp?.large_image_url || raw.images?.jpg?.large_image_url, 
     score: raw.score,
     rank: raw.rank,
     episodes: raw.episodes,
@@ -105,6 +106,7 @@ export async function getNewestAnimes({ limit = 25, page = 1, signal, ttl } = {}
   try {
     const json = await request('/seasons/upcoming', { limit, page }, { signal, ttl });
     const items = Array.isArray(json?.data) ? json.data : [];
+    console.log(items)
     return items.map(normalizeAnime);
   } catch (err) {
     if (err.name === 'AbortError') {
