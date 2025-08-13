@@ -179,23 +179,33 @@ body:last-child{
   }
 
   .header {
-  display: flex;
-  direction: row;
-  background-color: var(--purple-200);
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--purple-200);
+  }
+
+  
+.logo {
+    display: flex;
+    align-items: center;
   }
 
   .desktop-nav {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     gap: 2rem;
   }
 
   .desktop-nav a {
-    color: var(--orange-400);
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
   }
+
 
   .main-banner {
     position: relative;
