@@ -34,7 +34,7 @@ async function loadNewestAnimes({ limit = 25, page = 1} = {}) {
 }
 
 
-async function teste() {
+async function loadBanner() {
   try {
     const response = await fetch("../res/banner.json");
     const Banners = await response.json();
@@ -53,6 +53,7 @@ async function teste() {
 document.addEventListener("DOMContentLoaded", () => {
   loadTopAnime({ limit: 12, page: 1 });
   loadNewestAnimes({ limit: 12, page: 1 });
+  loadBanner();
 });
 
 

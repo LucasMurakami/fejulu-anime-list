@@ -40,7 +40,7 @@ body:last-child {
   margin-bottom: 5rem;
 }
 
-.header {
+.logo {
   display: flex;
   direction: row;
   background-color: var(--purple-200);
@@ -54,6 +54,7 @@ body:last-child {
   font-weight: bold;
   color: var(--orange-400);
 }
+
 
 .desktop-nav,
 .banner-info-desktop,
@@ -178,12 +179,11 @@ body:last-child {
 }
 
 .anime-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   list-style: none;
+  padding: 0;
   margin: 0;
 }
 
@@ -273,6 +273,7 @@ body:last-child {
 
   .logo {
     display: flex;
+    flex-direction: row;
     align-items: center;
   }
 
