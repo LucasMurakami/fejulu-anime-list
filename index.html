@@ -6,101 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/css-reset.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <script type="module" src="./scripts/index.js"></script>
     <title>Home</title>
 </head>
 
 <body>
     <!-- Header -->
-    <header>
-        <img src="" alt="" />
+    <header class="header">
+        <img src="./res/logo_icon.svg" alt="Website Logo" />
         <p>MUTI-GA</p>
-    </header>
 
-    <!-- Anime Banner -->
-    <div>
-        <img src="" alt="" />
-        <button>Visualizar</button>
+        <nav class="desktop-nav">
+            <a href="novidades.html">Novidades</a>
+            <a href="populares.html">Populares</a>
+            <a href="categDesktop.html">Categorias</a>
+        </nav>
+
+    </header>
+    <!-- Anime Carousel -->
+    <div class="anime-banner">
+        <ul id="anime-carousel" class="anime-carousel">
+            
+        </ul>
     </div>
+
 
     <!-- Animes Populares -->
     <div>
-        <p>Animes Populares</p>
-          <ul>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Sousou no Frieren</p>
-            </li>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Shingeki no Kyojin</p>
-            </li>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Death Note</p>
-            </li>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Haikyuu</p>
-            </li>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Horimiya</p>
-            </li>
+        <div class="section-title">
+            <p>Animes Populares</p>
+            <div class="spacer"></div>
+        </div>
+
+        <ul class="anime-list" id="popular-anime-list">
         </ul>
     </div>
 
     <!-- Novidades -->
     <div>
-        <p>Novidades</p>
-        <ul>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Sousou no Frieren</p>
-            </li>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Shingeki no Kyojin</p>
-            </li>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Death Note</p>
-            </li>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Haikyuu</p>
-            </li>
-            <li>
-                <img src="https://cdn.myanimelist.net/images/anime/7/74975.jpg" alt="" />
-                <p>Horimiya</p>
-            </li>
+        <div class="section-title">
+            <p>Novidades</p>
+            <div class="spacer"></div>
+        </div>
+
+        <ul class="anime-list" id="newest-anime-list">
         </ul>
     </div>
-
-    <!-- Footer (Sticky) -->
-    <footer>
-        <button>
-            <icon>
-
-            </icon>
-            Home
-        </button>
-        <button>
-            <icon>
-
-            </icon>
-            Categories
-        </button>
-        <button>
-            <icon class="mateiral-icons">Heat</icon>
-        </button>
-        <button>
-            <icon>
-
-            </icon>
-            Latest
-        </button>
-    </footer>
 </body>
+
+<!-- Footer (Sticky) -->
+<footer class="footer">
+    <button class="footer-button">
+        <i class="material-symbols-outlined">home</i>
+        Home
+    </button>
+    <button class="footer-button">
+        <i class="material-symbols-outlined">view_cozy</i>
+        Categories
+    </button>
+    <button class="footer-button">
+        <i class="material-symbols-outlined">mode_heat</i>
+        Popular
+    </button>
+    <button class="footer-button">
+        <i class="material-symbols-outlined">target</i>
+        Latest
+    </button>
+</footer>
+
+
+<!-- Footer Desktop -->
+
+<footer class="footer-desktop">
+    <h4>Navegação</h4>
+    <ul>
+        <li><a href="novidades.html">Novidades</a></li>
+        <li><a href="populares.html">Populares</a></li>
+        <li><a href="categDesktop.html">Categorias</a></li>
+    </ul>
+</footer>
 
 </html>

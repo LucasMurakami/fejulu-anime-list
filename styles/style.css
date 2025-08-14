@@ -1,21 +1,338 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Poppins&display=swap');
 
 :root {
+  /* Default Font - Roboto Weight 400 */
+  font-family: 'Roboto', 'Montserrat', 'Poppins', sans-serif;
+  font-weight: 400;
+
   /* Purple shades */
   --purple-100: #240046;
   --purple-200: #3C096C;
   --purple-300: #5A189A;
   --purple-400: #7B2CBF;
   --purple-500: #9D4EDD;
-  
+
   /* Orange shades */
   --orange-100: #FF6D00;
   --orange-200: #FF7900;
   --orange-300: #FF8500;
   --orange-400: #FF9100;
   --orange-500: #FF9E00;
+
+  /* Fonts to use in the project */
+  --font-roboto: 'Roboto', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+
 }
 
+
 body {
-    font-family: 'Roboto', 'Montserrat', 'Poppins', sans-serif;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--purple-100);
+  width: 100%;
+}
+
+
+body:last-child {
+  margin-bottom: 5rem;
+}
+
+.header {
+  display: flex;
+  direction: row;
+  background-color: var(--purple-200);
+  align-items: center;
+}
+
+.header p {
+  margin-left: 1rem;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--orange-400);
+}
+
+.desktop-nav,
+.banner-info-desktop,
+.footer-desktop {
+  display: none;
+}
+
+.anime-carousel {
+  display: flex;
+  flex-direction: row;
+  width: calc(100vh * 6);
+  overflow: hidden;
+}
+
+@keyframes pingPongScroll {
+  0%, 5%    { transform: translateX(0); }
+  10%, 15%  { transform: translateX(-100vw); }
+  20%, 25%  { transform: translateX(-200vw); }
+  30%, 35%  { transform: translateX(-300vw); }
+  40%, 45%  { transform: translateX(-400vw); }
+  50%, 55%  { transform: translateX(-500vw); }
+  60%, 65%  { transform: translateX(-400vw); }
+  70%, 75%  { transform: translateX(-300vw); }
+  80%, 85%  { transform: translateX(-200vw); }
+  90%, 95%  { transform: translateX(-100vw); }
+  100%      { transform: translateX(0); }
+}
+
+.anime-carousel li {
+  height: fit-content;
+  animation: pingPongScroll 40s ease-in-out infinite;
+}
+
+
+.anime-banner {
+  overflow: hidden;
+  flex: none;
+  width: 100vw;
+  scroll-snap-align: start;
+}
+
+.anime-card {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  justify-content: end;
+  width: 100vw;
+  height: 45vw;
+  aspect-ratio: 16/9;
+}
+
+.anime-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  background: linear-gradient(0deg, rgba(36, 0, 70, 1) 0, rgba(90, 24, 154, 0) 100%);
+}
+
+
+.anime-banner-title {
+  position: relative;
+  align-self: center;
+  width: 30%;
+  aspect-ratio: 16/9;
+  z-index: 10;
+}
+
+.anime-banner-img {
+  z-index: 8;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.anime-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.anime-list li img {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.section-title {
+  padding: 0 1rem;
+  margin: 1rem 0;
+  gap: .5rem;
+}
+
+.section-title p {
+  font-size: 16px;
+}
+
+.spacer {
+  width: 100%;
+  height: 2px;
+  background-color: var(--orange-400);
+}
+
+.anime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  gap: .5rem;
+  margin: .5rem;
+  text-align: center;
+
+}
+
+.anime-name {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.footer {
+  padding: .5rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background: linear-gradient(180deg, var(--purple-100) 0%, var(--purple-300) 100%);
+}
+
+.footer-button {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF95;
+}
+
+
+@media screen and (min-width: 768px) {
+
+  .desktop-nav,
+  .banner-info-desktop,
+  .footer-desktop {
+    display: block;
+  }
+
+  .banner-mobile,
+  .footer {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+    direction: row;
+    background-color: var(--purple-200);
+    align-items: center;
+  }
+
+  .desktop-nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .desktop-nav a {
+    color: var(--orange-400);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .main-banner {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem 3rem;
+    gap: 2rem;
+  }
+
+  .main-banner img {
+    width: 50%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .banner-info-desktop {
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .banner-info-desktop h2 {
+    font-size: 24px;
+    color: var(--orange-400);
+  }
+
+  .banner-info-desktop h3 {
+    font-size: 18px;
+    color: var(--orange-300);
+  }
+
+  .main-banner p {
+    font-size: 16px;
+    color: var(--orange-300);
+  }
+
+  .banner-info-desktop button {
+    background-color: var(--orange-400);
+    border: none;
+    padding: .5rem 1rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .anime-list {
+    justify-content: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 0 3rem;
+  }
+
+  .anime {
+    padding: 1rem;
+    border-radius: 8px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .anime p {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--orange-300);
+  }
+
+  .footer-desktop {
+    padding: 2rem 3rem;
+    background-color: var(--purple-300);
+    color: white;
+  }
+
+  .footer-desktop h4 {
+    font-size: 18px;
+    margin-bottom: 1rem;
+    color: var(--orange-400);
+  }
+
+  .footer-desktop ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-desktop li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .anime-banner-synopsis {
+    font-size: 1.5rem;
+    margin-bottom: 12rem;
+  }
+
 }
