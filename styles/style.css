@@ -55,6 +55,9 @@ body:last-child {
   color: var(--orange-400);
 }
 
+.logo-text p {
+  color: white;
+}
 
 .desktop-nav,
 .banner-info-desktop,
@@ -70,18 +73,62 @@ body:last-child {
 }
 
 @keyframes pingPongScroll {
-  0%, 5%    { transform: translateX(0); }
-  10%, 15%  { transform: translateX(-100vw); }
-  20%, 25%  { transform: translateX(-200vw); }
-  30%, 35%  { transform: translateX(-300vw); }
-  40%, 45%  { transform: translateX(-400vw); }
-  50%, 55%  { transform: translateX(-500vw); }
-  60%, 65%  { transform: translateX(-400vw); }
-  70%, 75%  { transform: translateX(-300vw); }
-  80%, 85%  { transform: translateX(-200vw); }
-  90%, 95%  { transform: translateX(-100vw); }
-  100%      { transform: translateX(0); }
+
+  0%,
+  5% {
+    transform: translateX(0);
+  }
+
+  10%,
+  15% {
+    transform: translateX(-100vw);
+  }
+
+  20%,
+  25% {
+    transform: translateX(-200vw);
+  }
+
+  30%,
+  35% {
+    transform: translateX(-300vw);
+  }
+
+  40%,
+  45% {
+    transform: translateX(-400vw);
+  }
+
+  50%,
+  55% {
+    transform: translateX(-500vw);
+  }
+
+  60%,
+  65% {
+    transform: translateX(-400vw);
+  }
+
+  70%,
+  75% {
+    transform: translateX(-300vw);
+  }
+
+  80%,
+  85% {
+    transform: translateX(-200vw);
+  }
+
+  90%,
+  95% {
+    transform: translateX(-100vw);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
+
 
 .anime-carousel li {
   height: fit-content;
@@ -198,6 +245,7 @@ body:last-child {
   padding: 0 1rem;
   margin: 1rem 0;
   gap: .5rem;
+  align-items: baseline;
 }
 
 .section-title p {
@@ -277,7 +325,7 @@ body:last-child {
     align-items: center;
   }
 
-  
+
 
   .desktop-nav {
     display: flex;
@@ -294,23 +342,6 @@ body:last-child {
     font-size: 16px;
   }
 
-
-  .main-banner {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 2rem 3rem;
-    gap: 2rem;
-  }
-
-  .main-banner img {
-    width: 50%;
-    border-radius: 12px;
-    object-fit: cover;
-  }
-
-  
   .banner-info-desktop {
     flex: 1;
     color: white;
@@ -318,7 +349,7 @@ body:last-child {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
 
   .banner-info-desktop h2 {
     font-size: 24px;
@@ -330,10 +361,6 @@ body:last-child {
     color: var(--orange-300);
   }
 
-  .main-banner p {
-    font-size: 16px;
-    color: var(--orange-300);
-  }
 
   .banner-info-desktop button {
     background-color: var(--orange-400);
@@ -351,19 +378,18 @@ body:last-child {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    padding: 2rem;
     list-style: none;
     margin: 0;
   }
 
   .anime {
+    position: relative;
     padding: 1rem;
     border-radius: 8px;
     width: 220px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .5rem;
   }
 
   .anime p {
@@ -373,61 +399,115 @@ body:last-child {
 
 
   .anime-banner {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
 
-.anime-banner img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
+  .anime-banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
 
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(36, 0, 70, 0.6) 40%, rgba(90, 24, 154, 0) 100%);
-  z-index: 2;
-}
+  .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(36, 0, 70, 0.6) 40%, rgba(90, 24, 154, 0) 100%);
+    z-index: 2;
+  }
 
-.banner-info {
-  position: relative;
-  z-index: 3;
-  padding: 2rem;
-  max-width: 700px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+  .banner-info {
+    position: relative;
+    z-index: 3;
+    max-width: 700px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-.banner-info h1 {
-  font-size: 2rem;
-  color: var(--orange-400);
-}
+  .banner-info h1 {
+    font-size: 2rem;
+    color: var(--orange-400);
+  }
 
-.banner-info h2 {
-  font-size: 1.2rem;
-  color: var(--orange-300);
-}
+  .banner-info h2 {
+    font-size: 1.2rem;
+    color: var(--orange-300);
+  }
 
-.banner-info p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
+  .banner-info p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 
   .anime-banner-synopsis {
     font-size: 1.5rem;
     margin-bottom: 12rem;
   }
 
+  .spacer {
+    margin-top: .5rem;
+  }
+
+  .section-title p {
+    font-size: 2rem;
+  }
+
+  .anime-pseudo {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgb(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .anime-pseudo-title {
+    margin: .5rem;
+    color: var(--orange-300);
+  }
+
+  .anime:hover .anime-pseudo {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .anime:hover .anime-name {
+    opacity: 0;
+  }
+
+  .anime-pseudo-rating-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .anime-pseudo-score-container, .anime-pseudo-rating-container {
+    color: var(--orange-300);
+    text-align: start;
+  }
+
+  .to-be-released {
+    color: var(--orange-300);
+  }
 }

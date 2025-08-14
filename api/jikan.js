@@ -66,6 +66,7 @@ async function request(path, params = {}, { signal, ttl = DEFAULT_TTL_MS } = {})
  * @returns normalized anime object
  */
 function normalizeAnime(raw) {
+
   return {
     id: raw.mal_id,
     title: raw.title || raw.title_english || raw.title_japanese,
@@ -73,9 +74,12 @@ function normalizeAnime(raw) {
     banner: raw.images?.webp?.large_image_url || raw.images?.jpg?.large_image_url, 
     score: raw.score,
     rank: raw.rank,
+    popularity: raw.popularity,
     episodes: raw.episodes,
-    url: raw.url
+    url: raw.url,
+    members: raw.members
   };
+
 }
 
 /**
