@@ -126,7 +126,7 @@ export async function getNewestAnimes({ limit = 25, page = 1, signal, ttl } = {}
   try {
     const json = await request('/seasons/upcoming', { limit, page }, { signal, ttl });
     const items = Array.isArray(json?.data) ? json.data : [];
-    console.log(items)
+    // console.log(items)
     return items.map(normalizeAnime);
   } catch (err) {
     if (err.name === 'AbortError') {

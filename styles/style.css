@@ -49,7 +49,8 @@ body:last-child {
 
 .header p {
   margin-left: 1rem;
-  font-size: 24px;
+  font-size: 32px;
+  font-family: var(--font-poppins);
   font-weight: bold;
   color: var(--orange-400);
 }
@@ -173,10 +174,11 @@ body:last-child {
 .anime-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
   list-style: none;
+  margin: 0;
 }
 
 
@@ -194,6 +196,8 @@ body:last-child {
 
 .section-title p {
   font-size: 16px;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
 }
 
 .spacer {
@@ -219,7 +223,6 @@ body:last-child {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 
 .footer {
   padding: .5rem;
@@ -258,13 +261,22 @@ body:last-child {
     display: flex;
     direction: row;
     background-color: var(--purple-200);
+    justify-content: space-between;
     align-items: center;
   }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  
 
   .desktop-nav {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    margin-right: 2rem;
     gap: 2rem;
   }
 
@@ -291,6 +303,7 @@ body:last-child {
     object-fit: cover;
   }
 
+  
   .banner-info-desktop {
     flex: 1;
     color: white;
@@ -298,6 +311,7 @@ body:last-child {
     flex-direction: column;
     gap: 1rem;
   }
+  
 
   .banner-info-desktop h2 {
     font-size: 24px;
@@ -326,10 +340,13 @@ body:last-child {
   }
 
   .anime-list {
-    justify-content: flex-start;
-    gap: 2rem;
+    display: flex;
     flex-wrap: wrap;
-    padding: 0 3rem;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    list-style: none;
+    margin: 0;
   }
 
   .anime {
@@ -345,7 +362,6 @@ body:last-child {
   .anime p {
     font-size: 16px;
     font-weight: bold;
-    color: var(--orange-300);
   }
 
 
@@ -392,17 +408,14 @@ body:last-child {
   color: var(--orange-400);
 }
 
-  .footer-desktop ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 2rem;
-  }
+.banner-info h2 {
+  font-size: 1.2rem;
+  color: var(--orange-300);
+}
 
-  .footer-desktop li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
+.banner-info p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
 }
