@@ -68,40 +68,23 @@ body:last-child {
   overflow: hidden;
 }
 
-.anime-carousel li {
-  animation: pingPongScroll 18s infinite ease-in-out;
-
+@keyframes pingPongScroll {
+  0%, 5%    { transform: translateX(0); }
+  10%, 15%  { transform: translateX(-100vw); }
+  20%, 25%  { transform: translateX(-200vw); }
+  30%, 35%  { transform: translateX(-300vw); }
+  40%, 45%  { transform: translateX(-400vw); }
+  50%, 55%  { transform: translateX(-500vw); }
+  60%, 65%  { transform: translateX(-400vw); }
+  70%, 75%  { transform: translateX(-300vw); }
+  80%, 85%  { transform: translateX(-200vw); }
+  90%, 95%  { transform: translateX(-100vw); }
+  100%      { transform: translateX(0); }
 }
 
-@keyframes pingPongScroll {
-  0%    { transform: translateX(0); }
-  5.55% { transform: translateX(0); }
-
-  11.11% { transform: translateX(-100vw); }
-  16.66% { transform: translateX(-100vw); }
-
-  22.22% { transform: translateX(-200vw); }
-  27.77% { transform: translateX(-200vw); }
-
-  33.33% { transform: translateX(-300vw); }
-  38.88% { transform: translateX(-300vw); }
-
-  44.44% { transform: translateX(-400vw); }
-  50%    { transform: translateX(-400vw); }
-
-  55.55% { transform: translateX(-500vw); }
-  61.11% { transform: translateX(-500vw); }
-
-  66.66% { transform: translateX(-400vw); }
-  72.22% { transform: translateX(-400vw); }
-
-  77.77% { transform: translateX(-300vw); }
-  83.33% { transform: translateX(-300vw); }
-
-  88.88% { transform: translateX(-200vw); }
-  94.44% { transform: translateX(-200vw); }
-
-  100%   { transform: translateX(-100vw); }
+.anime-carousel li {
+  height: fit-content;
+  animation: pingPongScroll 40s ease-in-out infinite;
 }
 
 
@@ -110,7 +93,6 @@ body:last-child {
   flex: none;
   width: 100vw;
   scroll-snap-align: start;
-
 }
 
 .anime-card {
@@ -118,8 +100,9 @@ body:last-child {
   display: flex;
   flex: none;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: end;
   width: 100vw;
+  height: 45vw;
   aspect-ratio: 16/9;
 }
 
@@ -131,34 +114,17 @@ body:last-child {
   width: 100%;
   height: 100%;
   z-index: 9;
-  background: linear-gradient(90deg, rgba(36, 0, 70, 0.6) 40%, rgba(90, 24, 154, 0) 100%);
+  background: linear-gradient(0deg, rgba(36, 0, 70, 1) 0, rgba(90, 24, 154, 0) 100%);
 }
 
 
 .anime-banner-title {
   position: relative;
-  margin: 1rem;
-  font-size: 2rem;
+  align-self: center;
+  width: 30%;
+  aspect-ratio: 16/9;
   z-index: 10;
-  font-weight: bold;
 }
-
-.anime-banner-synopsis {
-  position: relative;
-  text-align: justify;
-  font-size: 1rem;
-  margin: 1rem;
-  width: 50%;
-  z-index: 10;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-}
-
-
 
 .anime-banner-img {
   z-index: 8;
@@ -457,5 +423,10 @@ body:last-child {
   font-size: 1rem;
   line-height: 1.5;
 }
+
+  .anime-banner-synopsis {
+    font-size: 1.5rem;
+    margin-bottom: 12rem;
+  }
 
 }
