@@ -40,3 +40,39 @@ export function renderAnimes(animes, containerSelector) {
 
   listContainer.appendChild(frag);
 }
+
+export function renderBanner(banners, containerSelector) {
+  const listContainer = document.querySelector(containerSelector);
+  if (!listContainer) return;
+
+  listContainer.innerHTML = "";
+
+  const frag = document.createDocumentFragment();
+
+  banners.forEach(banner => {
+    const li = document.createElement("li");
+
+    const div = document.createElement("div");
+    div.className = "anime-card";
+    div.style.backgroundImage = `url(${banner.img})`;
+    div.style.backgroundSize = "cover";
+
+
+    const title = document.createElement("div");
+    title.style.backgroundImage = `url(${banner.title})`;
+    title.style.backgroundRepeat = "no-repeat";
+    title.style.backgroundSize = "contain";
+    title.className = "anime-banner-title";
+
+    // const synopsis = document.createElement("p");
+    // synopsis.className = "anime-banner-synopsis";
+    // synopsis.textContent = banner.synopsis;
+
+    li.appendChild(div)
+    div.appendChild(title);
+    // div.appendChild(synopsis);
+    frag.appendChild(li);
+  });
+
+  listContainer.appendChild(frag);
+}
