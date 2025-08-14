@@ -19,11 +19,14 @@ export function renderAnimes(animes, containerSelector) {
     return;
   }
 
+  console.log(animes);
+
   const frag = document.createDocumentFragment();
 
   animes.forEach(anime => {
     const li = document.createElement("li");
-    li.classList.add("anime");
+    li.className = "anime";
+    li.id = `genre-${anime.id}`;
 
     const img = document.createElement("img");
     img.src = anime.image;
@@ -41,36 +44,34 @@ export function renderAnimes(animes, containerSelector) {
   listContainer.appendChild(frag);
 }
 
-export function renderBanner(banners, containerSelector) {
+export function renderAnimesCategories(animesCategory, containerSelector) {
   const listContainer = document.querySelector(containerSelector);
   if (!listContainer) return;
 
   listContainer.innerHTML = "";
 
+  if (!animesCategory.length) {
+    listContainer.innerHTML = "<li class='anime-category'><p class='anime-category-name'>Nenhum anime encontrado.</p></li>";
+    return;
+  }
+
   const frag = document.createDocumentFragment();
 
-  banners.forEach(banner => {
+  animesCategory.forEach(anime => {
     const li = document.createElement("li");
+    li.className = "anime-category"
+    li.id = `genre-${anime.id}`;
+    li.style.cursor = "pointer";
 
-    const div = document.createElement("div");
-    div.className = "anime-card";
-    div.style.backgroundImage = `url(${banner.img})`;
-    div.style.backgroundSize = "cover";
+    li.addEventListener("click", () => {
+      window.location.href = `category.html?genre=${anime.id}`;
+    });
 
+    const title = document.createElement("p");
+    title.className = "anime-category-name"
+    title.textContent = anime.name;
 
-    const title = document.createElement("div");
-    title.style.backgroundImage = `url(${banner.title})`;
-    title.style.backgroundRepeat = "no-repeat";
-    title.style.backgroundSize = "contain";
-    title.className = "anime-banner-title";
-
-    // const synopsis = document.createElement("p");
-    // synopsis.className = "anime-banner-synopsis";
-    // synopsis.textContent = banner.synopsis;
-
-    li.appendChild(div)
-    div.appendChild(title);
-    // div.appendChild(synopsis);
+    li.appendChild(title);
     frag.appendChild(li);
   });
 

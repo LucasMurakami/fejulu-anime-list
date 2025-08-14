@@ -79,6 +79,38 @@ function normalizeAnime(raw) {
 }
 
 /**
+ * Normalize raw info anime item to a minimal shape used by UI.
+ * @param {*} raw
+ * @returns normalized anime info object
+ */
+function normalizeAnimeInfo(raw) {
+  return {
+    id: raw.mal_id,
+    title: raw.title || raw.title_english || raw.title_japanese,
+    image: raw.images?.webp?.large_image_url || raw.images?.jpg?.image_url,
+    score: raw.score,
+    rank: raw.rank,
+    episodes: raw.episodes,
+    url: raw.url,
+    synopsis: raw.synopsis,
+    genres: raw.genres,
+    title_japanese: raw.title_japanese
+  };
+}
+
+/**
+ * Normalize raw info anime genre item
+ * @param {*} raw 
+ * @returns normalized anime genres as categories object
+ */
+function normalizeAnimeCategories(raw) {
+  return {
+    id: raw.mal_id,
+    name: raw.name
+  }
+}
+
+/**
  * Fetch top anime list.
  * @param {object} opts { limit=25, page=1, signal, ttl }
  * @returns {Promise<Array>}
@@ -106,13 +138,87 @@ export async function getNewestAnimes({ limit = 25, page = 1, signal, ttl } = {}
   try {
     const json = await request('/seasons/upcoming', { limit, page }, { signal, ttl });
     const items = Array.isArray(json?.data) ? json.data : [];
-    console.log(items)
+    // console.log(items)
     return items.map(normalizeAnime);
   } catch (err) {
     if (err.name === 'AbortError') {
       return [];
     }
     console.error('[getNewestAnimes] Error:', err);
+    throw err;
+  }
+}
+
+/**
+ * Fetch anime by id.
+ * @param {object} opts { id, signal, ttl }
+ * @returns {Promise<Array>}
+ */
+export async function getAnimeById({ id, signal, ttl } = {}) {
+  try {
+    const json = await request(`/anime/${id}`, {}, { signal, ttl });
+    const item = json?.data ? json.data : [];
+    return [normalizeAnimeInfo(item)]; 
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      return [];
+    }
+    console.error('[getAnimeById] Error:', err);
+    throw err;
+  }
+}
+
+/**
+ * 
+ * @param {*} opts { signal, ttl }
+ * @returns {Promise<Array>}
+ */
+export async function getAnimeCategories({signal, ttl} = {}) {
+  try {
+    const json = await request(`/genres/anime`, {}, { signal, ttl });
+    const items = Array.isArray(json?.data) ? json.data : [];
+    const EXCLUDED_GENRES = [
+      "Ecchi", "Erotica", "Hentai", "Adult Cast",
+      "CGDCT", "Crossdressing", "Gore", "Harem", "High Stakes Game",
+      "Magical Sex Shift", "Otaku Culture", "Reverse Harem",
+      "Love Status Quo", "Kids"
+    ];
+
+    // Filter out unwanted genres
+    const filteredItems = items.filter(item => !EXCLUDED_GENRES.includes(item.name));
+
+    return filteredItems.map(normalizeAnimeCategories);
+  } catch(err) {
+    if (err.name === 'AbortError') {
+      return [];
+    }
+    console.error('[getAnimeCategories] Error:', err);
+    throw err;
+  }
+}
+
+/**
+ * Fetch top anime list.
+ * @param {object} opts { limit=25, page=1, signal, ttl }
+ * @returns {Promise<Array>}
+ */
+export async function getAnimesByCategories({ categoryId, limit = 25, page = 1, signal, ttl } = {}) {
+  try {
+    const json = await request(`/anime?${categoryId}`, { limit, page }, { signal, ttl });
+    console.log(json);    
+
+    const items = Array.isArray(json?.data)
+      ? json.data.flat()
+      : [];
+
+    console.log(items);
+    console.log(items.map(normalizeAnime));
+    return items.map(normalizeAnime);
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      return [];
+    }
+    console.error('[getTopAnimes] Error:', err);
     throw err;
   }
 }

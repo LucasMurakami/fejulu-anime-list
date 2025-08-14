@@ -2,15 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Evangelion: 1.0 You Are (Not) Alone - MUTI-GA</title>
+  <title>MUTI-GA</title>
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/css-reset.css" />
 
-    
-    <script type="module" src="scripts/infoDesktop.js"></script>
+    <script type="module" src="./scripts/categoria.js"></script>
 </head>
 <body>
-  
+
   <header class="header">
 
         <div class="logo">
@@ -32,19 +31,16 @@
 
     </header>
 
-<main class="anime-detalhes">
-    <section class="anime-banner">
-      <div class="banner-overlay"></div>
-      <img id="anime-image" alt="Imagem do Anime">
-      <div class="banner-info">
-        <h1 id="anime-title"></h1>
-        <h2 id="anime-japanese-title"></h2>
-        <p id="anime-genres"></p>
-        <p id="anime-description"></p>
+
+  <!-- CATEGORIAS -->
+  <section class="categoria">
+     <div class="section-title">
+        <p id="anime-category-name"></p>
+        <div class="spacer"></div>
       </div>
-    </section>
-  </main>
+
+        <ul class="anime-list" id="animes-by-category-list"></ul>
+  </section>
 
 </body>
 </html>
-

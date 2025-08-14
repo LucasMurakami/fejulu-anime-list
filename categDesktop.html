@@ -5,64 +5,42 @@
   <title>MUTI-GA</title>
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/css-reset.css" />
+
+    <script type="module" src="./scripts/categDesktop.js"></script>
 </head>
 <body>
 
-  <header>
-      <img src="./res/logo_icon.svg" alt="Website Logo" />
-        <p>MUTI-GA</p>
+  <header class="header">
 
-    <nav class="desktop-nav">
-    <a href="novidades.html">Novidades</a>
-    <a href="populares.html">Populares</a>
-    <a href="categDesktop.html">Categorias</a>
-    </nav>
+        <div class="logo">
+            <a href="index.html">
+            <div class="logo-image">
+                <img src="./res/logo_icon.svg" alt="Website Logo"/>
+            </div>
+          </a>
+            <div class="logo-text">            
+                <p>MUTI-GA</p>
+            </div>
+        </div>
+        
+        <nav class="desktop-nav">
+            <a href="novidades.html">Novidades</a>
+            <a href="populares.html">Populares</a>
+            <a href="categDesktop.html">Categorias</a>
+        </nav>
 
-  </header>
+    </header>
 
-  <!-- Banner principal -->
-  <section class="banner">
-    <div class="banner-image">
-      <!-- figma olho anime -->
-    </div>
-    <div class="banner-text">
-      <h2>Nome</h2>
-      <p>Info</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu augue ac tortor pulvinar tristique.</p>
-      <button onclick="location.href='infoDesktop.html'">Visualizar</button>
-    </div>
-  </section>
 
   <!-- CATEGORIAS -->
   <section class="categoria">
-    <h2>Ação</h2>
-    <div class="card">
-      <h3>Shingeki no Kyojin</h3>
-      <p> 9.3/10  171k votos #135 Popularidade</p>
-      <img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg" alt="" />
-    </div>
-  </section>
+     <div class="section-title">
+            <p>Categorias</p>
+            <div class="spacer"></div>
+        </div>
 
- 
-  <section class="categoria">
-    <h2>Comédia</h2>
-    <div class="card">
-      <h3>Shingeki no Kyojin</h3>
-      <p> 9.3/10  171k votos  #135 Popularidade</p>
-      <!-- Imagem do anime -->
-    </div>
+        <ul class="anime-category-list" id="anime-category-list"></ul>
   </section>
-
-  <!-- footer -->
-  
-<footer class="footer-desktop">
-  <h4>Navegação</h4>
-  <ul>
-    <li><a href="novidades.html">Novidades</a></li>
-    <li><a href="populares.html">Populares</a></li>
-    <li><a href="categDesktop.html">Categorias</a></li>
-  </ul>
-</footer>
 
 </body>
 </html>
