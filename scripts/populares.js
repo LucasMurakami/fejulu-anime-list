@@ -21,9 +21,3 @@ async function loadTopAnime({ limit = 25, page = 1 } = {}) {
 document.addEventListener("DOMContentLoaded", () => {
   loadTopAnime({ limit: 25, page: 1 });
 });
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  loadTopAnime({ limit: 25, page: 1 });
-  
-});

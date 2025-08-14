@@ -171,6 +171,46 @@ body:last-child {
   flex-direction: row;
 }
 
+.anime-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  list-style: none;
+  margin: 0;
+}
+
+.anime-category {
+  background: linear-gradient(135deg, var(--purple-300), var(--purple-500));
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  min-width: 240px;
+  max-width: 340px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.75em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.anime-category:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.anime-category-name {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
 .anime-list {
   display: flex;
   flex-wrap: wrap;

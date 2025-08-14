@@ -99,6 +99,18 @@ function normalizeAnimeInfo(raw) {
 }
 
 /**
+ * Normalize raw info anime genre item
+ * @param {*} raw 
+ * @returns normalized anime genres as categories object
+ */
+function normalizeAnimeCategories(raw) {
+  return {
+    id: raw.mal_id,
+    name: raw.name
+  }
+}
+
+/**
  * Fetch top anime list.
  * @param {object} opts { limit=25, page=1, signal, ttl }
  * @returns {Promise<Array>}
@@ -156,6 +168,60 @@ export async function getAnimeById({ id, signal, ttl } = {}) {
   }
 }
 
+/**
+ * 
+ * @param {*} opts { signal, ttl }
+ * @returns {Promise<Array>}
+ */
+export async function getAnimeCategories({signal, ttl} = {}) {
+  try {
+    const json = await request(`/genres/anime`, {}, { signal, ttl });
+    const items = Array.isArray(json?.data) ? json.data : [];
+    const EXCLUDED_GENRES = [
+      "Ecchi", "Erotica", "Hentai", "Adult Cast",
+      "CGDCT", "Crossdressing", "Gore", "Harem", "High Stakes Game",
+      "Magical Sex Shift", "Otaku Culture", "Reverse Harem",
+      "Love Status Quo", "Kids"
+    ];
+
+    // Filter out unwanted genres
+    const filteredItems = items.filter(item => !EXCLUDED_GENRES.includes(item.name));
+
+    return filteredItems.map(normalizeAnimeCategories);
+  } catch(err) {
+    if (err.name === 'AbortError') {
+      return [];
+    }
+    console.error('[getAnimeCategories] Error:', err);
+    throw err;
+  }
+}
+
+/**
+ * Fetch top anime list.
+ * @param {object} opts { limit=25, page=1, signal, ttl }
+ * @returns {Promise<Array>}
+ */
+export async function getAnimesByCategories({ categoryId, limit = 25, page = 1, signal, ttl } = {}) {
+  try {
+    const json = await request(`/anime?${categoryId}`, { limit, page }, { signal, ttl });
+    console.log(json);    
+
+    const items = Array.isArray(json?.data)
+      ? json.data.flat()
+      : [];
+
+    console.log(items);
+    console.log(items.map(normalizeAnime));
+    return items.map(normalizeAnime);
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      return [];
+    }
+    console.error('[getTopAnimes] Error:', err);
+    throw err;
+  }
+}
 
 export function clearJikanCache() {
   cache.clear();
