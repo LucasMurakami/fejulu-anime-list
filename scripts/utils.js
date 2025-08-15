@@ -18,9 +18,7 @@ export function renderAnimes(animes, containerSelector) {
     listContainer.innerHTML = "<li class='anime'>Nenhum anime encontrado.</li>";
     return;
   }
-
-  console.log(animes);
-
+  
   const frag = document.createDocumentFragment();
 
   animes.forEach(anime => {
