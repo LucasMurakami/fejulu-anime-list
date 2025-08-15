@@ -18,7 +18,7 @@ export function renderAnimes(animes, containerSelector) {
     listContainer.innerHTML = "<li class='anime'>Nenhum anime encontrado.</li>";
     return;
   }
-  
+
   const frag = document.createDocumentFragment();
 
   animes.forEach(anime => {
@@ -28,6 +28,7 @@ export function renderAnimes(animes, containerSelector) {
 
     const img = document.createElement("img");
     img.src = anime.image;
+    img.className = "anime-image"
     img.alt = `Cover of ${anime.title}`;
 
     const title = document.createElement("p");
@@ -37,6 +38,75 @@ export function renderAnimes(animes, containerSelector) {
     li.appendChild(img);
     li.appendChild(title);
     frag.appendChild(li);
+
+    // Criação das informações do anime
+    const div = document.createElement("div");
+    div.className = "anime-pseudo";
+
+    // Direciona para a pagina com as infos do anime
+    li.addEventListener("click", () => {
+      window.location.href = `infoDesktop.html?id=${anime.id}`;
+    });
+
+    const pseudoTitle = document.createElement("p");
+    pseudoTitle.className = "anime-pseudo-title";
+    pseudoTitle.textContent = anime.title;
+
+    const ratingDiv = document.createElement("div");
+    ratingDiv.className = "anime-pseudo-rating-container";
+
+    const scoreDiv = document.createElement("div");
+    scoreDiv.className = "anime-pseudo-score-container"
+
+    const score = document.createElement("p");
+    score.className = "anime-pseudo-score";
+    score.textContent = "✰ " + anime.score;
+
+    const scoreLabel = document.createElement("p");
+    scoreLabel.className = "anime-pseudo-score-label";
+
+    if (anime.members < 1_000_000) {
+      scoreLabel.textContent = Math.trunc(anime.members / 1000) + "K Users";
+    } else {
+      scoreLabel.textContent = (anime.members / 1_000_000).toFixed(2) + "M Users";
+
+    }
+    scoreLabel.style.fontSize = ".75rem";
+
+    scoreDiv.appendChild(score);
+    scoreDiv.appendChild(scoreLabel);
+
+    const popDiv = document.createElement("div");
+    popDiv.className = "anime-pseudo-popularity-container"
+
+
+    const popularity = document.createElement("p");
+    popularity.className = "anime-pseudo-popularity";
+    popularity.textContent = "# " + anime.popularity;
+
+    const popularityLabel = document.createElement("p");
+    popularityLabel.className = "anime-pseudo-popularity-label";
+    popularityLabel.textContent = "Popularity";
+    popularityLabel.style.fontSize = ".75rem";
+
+    popDiv.appendChild(popularity);
+    popDiv.appendChild(popularityLabel);
+
+    div.appendChild(pseudoTitle);
+
+    if (anime.score != null) {
+      ratingDiv.appendChild(scoreDiv);
+      ratingDiv.appendChild(popDiv);
+    } else {
+      const toBeReleased = document.createElement("p");
+      toBeReleased.textContent = "To be released!";
+      toBeReleased.className = "to-be-released";
+      div.appendChild(toBeReleased);
+    }
+
+    div.appendChild(ratingDiv);
+    li.appendChild(div);
+
   });
 
   listContainer.appendChild(frag);
