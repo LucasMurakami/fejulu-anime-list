@@ -22,8 +22,8 @@
                 <img src="./res/logo_icon.svg" alt="Website Logo"/>
             </div>
           </a>
-            <div class="logo-text">            
-                <p>MUTI-GA</p>
+            <div class="logo-text" onclick="mostrarModal()">            
+                <p id="mutiga-trigger">MUTI-GA</p>
             </div>
         </div>
         
@@ -61,6 +61,13 @@
 
         <ul class="anime-list" id="newest-anime-list"></ul>
     </div>
+
+    <div id="easteregg-modal" class="modal">
+    <div class="modal-content">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <img src="res/AhÉé.png" alt="Easter Egg"/>
+    </div>
+</div>
 </body>
 
 <!-- Footer (Sticky) -->

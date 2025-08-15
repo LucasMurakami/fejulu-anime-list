@@ -63,6 +63,32 @@ body:last-child {
   display: none;
 }
 
+.modal{
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--purple-400);
+}
+.modal-content img {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    width: 300px;
+    border-radius: 8px;
+}
+
+
+.fechar{
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .anime-carousel {
   display: flex;
   flex-direction: row;
