@@ -22,6 +22,15 @@ export function renderAnime(animes, containerSelector = "main.anime-detalhes") {
   document.getElementById("anime-japanese-title").textContent = anime.title_japanese || "";
   document.getElementById("anime-genres").textContent = anime.genres?.map(g => g.name).join(", ") || "Gêneros não disponíveis";
   document.getElementById("anime-description").textContent = anime.synopsis || "Sem descrição disponível.";
+
+
+  if (visualViewport.width >= 768) {
+    document.getElementById("anime-banner").style.backgroundImage = `url(${anime.image})` || "";
+    document.getElementById("anime-banner").style.backgroundSize = "cover" || "";
+  }
+
+
+
 }
 
 export async function loadAnimeById(id) {
