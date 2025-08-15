@@ -33,6 +33,7 @@ body {
   flex-direction: column;
   background-color: var(--purple-100);
   width: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -185,6 +186,8 @@ body:last-child {
   list-style: none;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+
 }
 
 
@@ -192,6 +195,8 @@ body:last-child {
   border-radius: 8px;
   width: 100%;
   height: 100%;
+
+
 }
 
 .section-title {
@@ -242,11 +247,17 @@ body:last-child {
 }
 
 .footer-button {
+  flex: 1;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
   border: none;
   color: #FFFFFF95;
+  text-decoration: none;
+  font-family: var(--font-poppins);
 }
 
 
