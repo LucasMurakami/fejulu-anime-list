@@ -40,5 +40,7 @@ export async function loadAnimeById(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadAnimeById(199); //199 chihiro, 431 howl, 20 naruto, 164 mononoke
+  const params = new URLSearchParams(window.location.search);
+  const animeId = params.get("id");
+  loadAnimeById(animeId);
 });
