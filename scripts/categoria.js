@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const titleElement = document.getElementById("anime-category-name");
 
-  console.log("Genre ID:", genreId);
+  // console.log("Genre ID:", genreId);
 
   if (!genreId) {
     titleElement.textContent = "Categoria não encontrada.";

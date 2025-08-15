@@ -38,7 +38,7 @@ async function loadBanner() {
   try {
     const response = await fetch("../res/banner.json");
     const Banners = await response.json();
-    console.log(Banners);
+    // console.log(Banners);
 
     renderBanner(Banners, "#anime-carousel");
   } catch (err) {

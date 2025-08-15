@@ -205,13 +205,13 @@ export async function getAnimeCategories({signal, ttl} = {}) {
 export async function getAnimesByCategories({ categoryId, limit = 25, page = 1, signal, ttl } = {}) {
   try {
     const json = await request(`/anime?genres=${categoryId}`, { limit, page }, { signal, ttl });
-    console.log(json);    
+    // console.log(json);    
 
     const items = Array.isArray(json?.data)
       ? json.data.flat()
       : [];
 
-    console.log(items.map(normalizeAnimeInfo));
+    // console.log(items.map(normalizeAnimeInfo));
 
     return items.map(normalizeAnimeInfo);
   } catch (err) {
