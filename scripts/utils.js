@@ -157,6 +157,10 @@ export function renderBanner(banners, containerSelector) {
   banners.forEach(banner => {
     const li = document.createElement("li");
 
+    li.addEventListener("click", () => {
+      window.location.href = banner.info;
+    });
+
     const div = document.createElement("div");
     div.className = "anime-card";
     div.style.backgroundImage = `url(${banner.img})`;

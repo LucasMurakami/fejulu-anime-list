@@ -1,51 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Evangelion: 1.0 You Are (Not) Alone - MUTI-GA</title>
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="styles/css-reset.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/css-reset.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-    
-    <script type="module" src="scripts/infoDesktop.js"></script>
+
+  <script type="module" src="scripts/infoDesktop.js"></script>
 </head>
-<body>
-  
+
+<body class="anime-info-body">
+
   <header class="header">
 
-        <div class="logo">
-            <a href="index.html">
-            <div class="logo-image">
-                <img src="./res/logo_icon.svg" alt="Website Logo"/>
-            </div>
-          </a>
-            <div class="logo-text">            
-                <p>MUTI-GA</p>
-            </div>
-                <p>ムチガ</p>
+    <div class="logo">
+      <a href="index.html">
+        <div class="logo-image">
+          <img src="./res/logo_icon.svg" alt="Website Logo" />
         </div>
-        
-        <nav class="desktop-nav">
-            <a href="novidades.html">Novidades</a>
-            <a href="populares.html">Populares</a>
-            <a href="categDesktop.html">Categorias</a>
-        </nav>
+      </a>
+      <div class="logo-text">
+        <p>MUTI-GA</p>
+      </div>
+      <p>ムチガ</p>
+    </div>
 
-    </header>
+    <nav class="desktop-nav">
+      <a href="novidades.html">Novidades</a>
+      <a href="populares.html">Populares</a>
+      <a href="categDesktop.html">Categorias</a>
+    </nav>
 
-<main class="anime-detalhes">
+  </header>
+
+  <main id="anime-banner" class="anime-detalhes">
     <section class="anime-banner">
       <div class="banner-overlay"></div>
-      <img id="anime-image" alt="Imagem do Anime">
+      <img id="anime-image" class="anime-info-image" alt="Imagem do Anime">
       <div class="banner-info">
-        <h1 id="anime-title"></h1>
-        <h2 id="anime-japanese-title"></h2>
-        <p id="anime-genres"></p>
-        <p id="anime-description"></p>
+        <h1 id="anime-title" class="anime-info-title"></h1>
+        <h2 id="anime-japanese-title" class="anime-info-japanese-title"></h2>
+        <p id="anime-genres" class="anime-info-genres"></p>
+        <p id="anime-description" class="anime-info-description"></p>
       </div>
     </section>
   </main>
 
 </body>
-</html>
+<!-- Footer (Sticky) -->
+<footer class="footer">
+  <a href="index.html" class="footer-button">
+    <i class="material-symbols-outlined">home</i>
+    Home
+  </a>
 
+  <a href="categDesktop.html" class="footer-button">
+    <i class="material-symbols-outlined">view_cozy</i>
+    Categories
+  </a>
+
+  <a href="populares.html" class="footer-button">
+    <i class="material-symbols-outlined">mode_heat</i>
+    Popular
+  </a>
+
+  <a href="novidades.html" class="footer-button">
+    <i class="material-symbols-outlined">target</i>
+    Latest
+  </a>
+</footer>
+
+</html>
