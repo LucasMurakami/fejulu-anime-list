@@ -36,6 +36,9 @@ body {
   overflow-x: hidden;
 }
 
+.anime-pseudo {
+  display: none;
+}
 
 body:last-child {
   margin-bottom: 5rem;
