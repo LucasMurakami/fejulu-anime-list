@@ -44,7 +44,7 @@ export function renderAnimes(animes, containerSelector) {
     div.className = "anime-pseudo";
 
     // Direciona para a pagina com as infos do anime
-    div.addEventListener("click", () => {
+    li.addEventListener("click", () => {
       window.location.href = `infoDesktop.html?id=${anime.id}`;
     });
 
