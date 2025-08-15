@@ -77,6 +77,7 @@ function normalizeAnime(raw) {
     popularity: raw.popularity,
     episodes: raw.episodes,
     url: raw.url,
+    genres: raw.genres,
     members: raw.members
   };
 
@@ -88,6 +89,8 @@ function normalizeAnime(raw) {
  * @returns normalized anime info object
  */
 function normalizeAnimeInfo(raw) {
+  console.log(raw)
+
   return {
     id: raw.mal_id,
     title: raw.title || raw.title_english || raw.title_japanese,
@@ -217,7 +220,7 @@ export async function getAnimesByCategories({ categoryId, limit = 25, page = 1, 
 
     // console.log(items.map(normalizeAnimeInfo));
 
-    return items.map(normalizeAnimeInfo);
+    return items.map(normalizeAnime);
   } catch (err) {
     if (err.name === 'AbortError') {
       return [];

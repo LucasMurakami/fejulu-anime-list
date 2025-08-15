@@ -18,7 +18,7 @@ export function renderAnimes(animes, containerSelector) {
     listContainer.innerHTML = "<li class='anime'>Nenhum anime encontrado.</li>";
     return;
   }
-  
+
   const frag = document.createDocumentFragment();
 
   animes.forEach(anime => {
@@ -39,10 +39,14 @@ export function renderAnimes(animes, containerSelector) {
     li.appendChild(title);
     frag.appendChild(li);
 
+    // Criação das informações do anime
     const div = document.createElement("div");
     div.className = "anime-pseudo";
-    div.style.pointerEvents = 'none';
-    div.style.ariaHidden = 'true';
+
+    // Direciona para a pagina com as infos do anime
+    div.addEventListener("click", () => {
+      window.location.href = `infoDesktop.html?id=${anime.id}`;
+    });
 
     const pseudoTitle = document.createElement("p");
     pseudoTitle.className = "anime-pseudo-title";
@@ -60,7 +64,13 @@ export function renderAnimes(animes, containerSelector) {
 
     const scoreLabel = document.createElement("p");
     scoreLabel.className = "anime-pseudo-score-label";
-    scoreLabel.textContent = Math.trunc(anime.members / 1000) + "K Users";
+
+    if (anime.members < 1_000_000) {
+      scoreLabel.textContent = Math.trunc(anime.members / 1000) + "K Users";
+    } else {
+      scoreLabel.textContent = (anime.members / 1_000_000).toFixed(2) + "M Users";
+
+    }
     scoreLabel.style.fontSize = ".75rem";
 
     scoreDiv.appendChild(score);

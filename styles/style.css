@@ -252,6 +252,7 @@ body:last-child {
   font-size: 16px;
   font-family: var(--font-montserrat);
   font-weight: 600;
+  margin-left: 1rem;
 }
 
 .spacer {
@@ -479,6 +480,7 @@ body:last-child {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    
   }
 
   .anime-pseudo-title {
@@ -488,7 +490,7 @@ body:last-child {
 
   .anime:hover .anime-pseudo {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: all;
   }
 
   .anime:hover .anime-name {
