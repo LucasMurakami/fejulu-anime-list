@@ -57,3 +57,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const trigger = document.getElementById("mutiga-trigger");
+    const modal = document.getElementById("easteregg-modal");
+    const fechar = document.querySelector(".fechar");
+    const conteudo = document.querySelector(".modal-content");
+
+    trigger.addEventListener("click", () => {
+        modal.style.display = "flex";
+    });
+
+    fechar.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    document.addEventListener("click", (event) => {
+        if (modal.style.display === "flex" && !conteudo.contains(event.target) && event.target !== trigger) {
+            modal.style.display = "none";
+        }
+    });
+});
