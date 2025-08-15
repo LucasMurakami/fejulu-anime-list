@@ -61,7 +61,7 @@ async function request(path, params = {}, { signal, ttl = DEFAULT_TTL_MS } = {})
 }
 
 /**
- * Normalize raw anime item to a minimal shape used by UI.
+ * Normalize raw anime item to a minimal shape used by UI. - For Cards.
  * @param {*} raw
  * @returns normalized anime object
  */
@@ -79,7 +79,7 @@ function normalizeAnime(raw) {
 }
 
 /**
- * Normalize raw info anime item to a minimal shape used by UI.
+ * Normalize raw info anime item to a minimal shape used by UI. - For information Page.
  * @param {*} raw
  * @returns normalized anime info object
  */
@@ -204,16 +204,16 @@ export async function getAnimeCategories({signal, ttl} = {}) {
  */
 export async function getAnimesByCategories({ categoryId, limit = 25, page = 1, signal, ttl } = {}) {
   try {
-    const json = await request(`/anime?${categoryId}`, { limit, page }, { signal, ttl });
+    const json = await request(`/anime?genres=${categoryId}`, { limit, page }, { signal, ttl });
     console.log(json);    
 
     const items = Array.isArray(json?.data)
       ? json.data.flat()
       : [];
 
-    console.log(items);
-    console.log(items.map(normalizeAnime));
-    return items.map(normalizeAnime);
+    console.log(items.map(normalizeAnimeInfo));
+
+    return items.map(normalizeAnimeInfo);
   } catch (err) {
     if (err.name === 'AbortError') {
       return [];
